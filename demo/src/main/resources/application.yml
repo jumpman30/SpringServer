@@ -1,0 +1,50 @@
+server:
+  port: '8081'
+
+spring:
+  profiles:
+    active: dev
+
+---
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: jumpman
+    password: 4525
+    url: jdbc:mariadb://localhost:3306/lapr4db
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+some:
+  Config: Some Shitty Configuration
+
+---
+spring:
+  profiles: qa
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: mysql
+    url: jdbc:mariadb://localhost:3306/test-qa
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+some:
+  Config: Some Shitty Configuration
+
+---
+spring:
+  profiles: prod
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: mysql
+    url: jdbc:mariadb://localhost:3306/test-prod
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'
+some:
+  Config: Some Shitty Configuration
